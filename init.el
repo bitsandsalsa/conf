@@ -5,7 +5,7 @@
 (global-set-key [s-mouse-3]   'my-unhighlight-last-word)
 (defvar my-highlighted-words nil)
 (make-variable-buffer-local 'my-highlighted-words)
-;; variable chooses whether to use built-in hi-lock, or the highlight.el pkg. 
+;; variable chooses whether to use built-in hi-lock, or the highlight.el pkg.
 (defvar my-use-highlight-pkg nil)
 (defvar my-highlight-faces '('hi-yellow 'hi-green 'hi-pink 'hi-blue
 				  'hi-red-b ' hi-green-b))
@@ -20,13 +20,13 @@
     ;; Updating to use the highlight.el package
     (if (my-use-highlight-p)
         (hlt-highlight-regexp-region (point-min) (point-max) word face)
-      ; else fall back to hi-lock 
+      ; else fall back to hi-lock
       (hi-lock-set-pattern word face))
-    
+
     (push (cons word face) my-highlighted-words)))
 
 (defun my-unhighlight-last-word ()
-  (interactive) 
+  (interactive)
   (let* ((word-face (pop my-highlighted-words))
          (word (car word-face))
          (face (cdr word-face)))
@@ -53,11 +53,10 @@
 
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(ido-mode 1) ; a better way to find files and buffers
-(ido-everywhere) ; use it everywhere possible
 (winner-mode 1) ; cycle through window arangements with C-c <left>,<right>
 (server-start) ; start the emacs server
 (semantic-mode 1) ; gather semantic content
+(tool-bar-mode 0)
 
 ;; Move to the window to the left/right/up/down of current window with
 ;; Shift-<left>, Shift-<up>, etc. NOTE: doesn't work in org-mode, b/c
@@ -91,13 +90,6 @@
 (package-initialize)
 
 ;;
-;; smex
-;;
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;;
 ;; magit
 ;;
 (global-set-key (kbd "<f9>") 'magit-status)
@@ -113,6 +105,12 @@
 (tabbar-mode 1)
 
 ;;
+;; helm
+;;
+(require `helm-config)
+(helm-mode 1)
+
+;;
 ;; gtags
 ;;
 (add-hook 'gtags-select-mode-hook
@@ -120,6 +118,14 @@
      (setq hl-line-face 'underline)
      (hl-line-mode 1)))
 (setq gtags-suggested-key-mapping t)
+
+
+;;
+;; rcirc
+;;
+(setq rcirc-server-alist
+	  '(("irc.freenode.net" :port 6697 :encryption tls
+		 :channels ("#rcirc" "#emacs" "#emacswiki"))))
 
 
 (custom-set-variables
@@ -130,14 +136,19 @@
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
  '(dired-dwim-target t)
+ '(hexl-bits 8)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
+ '(markdown-command "marked --gfm")
  '(package-archives (quote (("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(show-paren-mode t)
- '(show-trailing-whitespace t))
+ '(show-trailing-whitespace t)
+ '(tabbar-background-color "gray20")
+ '(tabbar-separator (quote (0.4))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(tabbar-default ((t (:inherit variable-pitch :background "gray75" :foreground "black" :height 0.8))))
+ '(tabbar-separator ((t (:inherit tabbar-default :background "gray20")))))
