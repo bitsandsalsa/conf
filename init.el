@@ -127,6 +127,13 @@
 	  '(("irc.freenode.net" :port 6697 :encryption tls
 		 :channels ("#rcirc" "#emacs" "#emacswiki"))))
 
+;;
+;; pylint
+;;
+(autoload 'pylint "pylint")
+(add-hook 'python-mode-hook 'pylint-add-menu-items)
+(add-hook 'python-mode-hook 'pylint-add-key-bindings)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -141,6 +148,7 @@
  '(inhibit-startup-screen t)
  '(markdown-command "marked --gfm")
  '(package-archives (quote (("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(pylint-options (quote ("--reports=n" "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'")))
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
  '(tabbar-background-color "gray20")
