@@ -35,6 +35,10 @@
         (hlt-unhighlight-regexp-region (point-min) (point-max) word face)
       (unhighlight-regexp word))))
 
+(defun delete-horizontal-space-forward () ; adapted from `delete-horizontal-space'
+  "Delete all spaces and tabs after point."
+  (interactive "*")
+  (delete-region (point) (progn (skip-chars-forward " \t") (point))))
 
 ;;
 ;; Python mode hooks
@@ -45,7 +49,7 @@
 
 (add-hook 'python-mode-hook
 	(lambda ()
-	  (setq indent-tabs-mode t)
+	  (setq indent-tabs-mode nil)
 	  (setq python-indent 4)
 	  (setq tab-width 4)
 	  (local-set-key (kbd "C-c g") 'my-insert-pdb-trace)))
@@ -146,6 +150,7 @@
  '(hexl-bits 8)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
+ '(line-number-mode t)
  '(markdown-command "marked --gfm")
  '(package-archives (quote (("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(pylint-options (quote ("--reports=n" "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'")))
