@@ -138,6 +138,20 @@
 (add-hook 'python-mode-hook 'pylint-add-menu-items)
 (add-hook 'python-mode-hook 'pylint-add-key-bindings)
 
+;;
+;; AUCTex
+;;
+; for document parsing
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+; multi-document parsing
+(setq-default TeX-master nil)
+; set line width for nicer diffing
+(add-hook 'LaTeX-mode-hook
+		  (lambda ()
+			(turn-on-auto-fill)
+			(setq fill-column 80)))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -165,3 +179,5 @@
  ;; If there is more than one, they won't work right.
  '(tabbar-default ((t (:inherit variable-pitch :background "gray75" :foreground "black" :height 0.8))))
  '(tabbar-separator ((t (:inherit tabbar-default :background "gray20")))))
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
