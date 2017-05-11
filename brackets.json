@@ -1,0 +1,22 @@
+{
+    "fonts.fontSize": "12px",
+    "fonts.fontFamily": "'SourceCodePro-Medium', ＭＳ ゴシック, 'MS Gothic', monospace",
+    "themes.theme": "light-theme",
+    "markdown-preview.useGFM": true,
+    "markdown-preview.theme": "clean",
+    "healthData.healthDataTracking": false,
+    "me.drewh.jsbeautify.on_save": false,
+    "markdown-preview.syncScroll": false,
+    "linting.collapsed": true,
+    "livedev.multibrowser": false,
+    "debug.showErrorsInStatusBar": false,
+    "extensions.sort": "downloadCount",
+    "hirse.outline.enabled": false,
+    "hirse.outline.sidebar": false,
+    "malas34.brackets-consoleplus.opened": false,
+    "bb.beautify.hideDialog": false,
+    "brackets-icons.iconset": "ionicons",
+    "hirse.outline.autohide": false,
+    "brackets-icons.secondary": true,
+    "pane.mergePanesWhenLastFileClosed": true
+}

@@ -1,0 +1,5 @@
+brackets-beautify
+gruehle.markdown-preview
+hirse.outline-list
+ivogabe.icons
+malas34.brackets-console-plus
