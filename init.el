@@ -52,7 +52,8 @@
 	  (setq indent-tabs-mode nil)
 	  (setq python-indent 4)
 	  (setq tab-width 4)
-	  (local-set-key (kbd "C-c g") 'my-insert-pdb-trace)))
+	  (local-set-key (kbd "C-c g") 'my-insert-pdb-trace)
+	  (anaconda-mode 1)))
 (setq default-tab-width 4)
 
 
@@ -112,6 +113,9 @@
 ;; helm
 ;;
 (require `helm-config)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
 
 ;;
@@ -148,9 +152,13 @@
 (setq-default TeX-master nil)
 ; set line width for nicer diffing
 (add-hook 'LaTeX-mode-hook
-		  (lambda ()
-			(turn-on-auto-fill)
-			(setq fill-column 80)))
+	(lambda ()
+	  ('turn-on-auto-fill)
+	  (setq fill-column 80)))
+
+;;
+;; Anaconda
+;;
 
 
 (custom-set-variables
