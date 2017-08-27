@@ -113,10 +113,10 @@
 ;; helm
 ;;
 (require `helm-config)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h o") 'helm-occur)
 
 ;;
 ;; gtags
@@ -174,8 +174,14 @@
  '(inhibit-startup-screen t)
  '(line-number-mode t)
  '(markdown-command "marked --gfm")
- '(package-archives (quote (("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
- '(pylint-options (quote ("--reports=n" "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'")))
+ '(package-archives
+   (quote
+	(("melpa" . "http://melpa.milkbox.net/packages/")
+	 ("marmalade" . "http://marmalade-repo.org/packages/")
+	 ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(pylint-options
+   (quote
+	("--reports=n" "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'")))
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
  '(tabbar-background-color "gray20")
