@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CPPCHECK_SRC_ROOT=$HOME/src/cppcheck-1.80
-CPPCHECK_PROJ_DIR=$HOME/Documents/cppcheck
+CPPCHECK_SRC_ROOT=$HOME/src/cppcheck-1.81
+CPPCHECK_PROJ_DIR=$HOME/Documents/cppcheck/foo
 SRC_DIR=$HOME/src/foo
 
 cd "$CPPCHECK_SRC_ROOT/cfg"
