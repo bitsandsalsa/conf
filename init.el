@@ -127,14 +127,6 @@
      (hl-line-mode 1)))
 (setq gtags-suggested-key-mapping t)
 
-
-;;
-;; rcirc
-;;
-(setq rcirc-server-alist
-	  '(("irc.freenode.net" :port 6697 :encryption tls
-		 :channels ("#rcirc" "#emacs" "#emacswiki"))))
-
 ;;
 ;; pylint
 ;;
@@ -143,23 +135,11 @@
 (add-hook 'python-mode-hook 'pylint-add-key-bindings)
 
 ;;
-;; AUCTex
+;; Anaconda, Company-Anaconda
 ;;
-; for document parsing
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-; multi-document parsing
-(setq-default TeX-master nil)
-; set line width for nicer diffing
-(add-hook 'LaTeX-mode-hook
-	(lambda ()
-	  ('turn-on-auto-fill)
-	  (setq fill-column 80)))
-
-;;
-;; Anaconda
-;;
-
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
+(add-hook 'after-init-hook 'global-company-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -168,7 +148,9 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
+ '(desktop-save-mode t)
  '(dired-dwim-target t)
+ '(ggtags-use-idutils t)
  '(hexl-bits 8)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
@@ -176,14 +158,14 @@
  '(markdown-command "marked --gfm")
  '(package-archives
    (quote
-	(("melpa" . "http://melpa.milkbox.net/packages/")
-	 ("marmalade" . "http://marmalade-repo.org/packages/")
-	 ("gnu" . "http://elpa.gnu.org/packages/"))))
+	(("melpa" . "https://melpa.org/packages/")
+	 ("gnu" . "https://elpa.gnu.org/packages/"))))
  '(pylint-options
    (quote
 	("--reports=n" "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'")))
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
+ '(speedbar-track-mouse-flag t)
  '(tabbar-background-color "gray20")
  '(tabbar-separator (quote (0.4))))
 (custom-set-faces
@@ -193,5 +175,5 @@
  ;; If there is more than one, they won't work right.
  '(tabbar-default ((t (:inherit variable-pitch :background "gray75" :foreground "black" :height 0.8))))
  '(tabbar-separator ((t (:inherit tabbar-default :background "gray20")))))
-(put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
