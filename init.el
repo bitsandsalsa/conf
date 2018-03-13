@@ -57,7 +57,6 @@
 (setq default-tab-width 4)
 
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 (winner-mode 1) ; cycle through window arangements with C-c <left>,<right>
 (server-start) ; start the emacs server
 (semantic-mode 1) ; gather semantic content
@@ -117,6 +116,8 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;
 ;; gtags
