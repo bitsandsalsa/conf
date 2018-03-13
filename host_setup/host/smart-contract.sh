@@ -49,6 +49,9 @@ sudo apt-get install -y \
     spice-vdagent \
     libgconf-2-4
 
+# allow user to talk to Docker daemon
+sudo adduser $(id -nu) docker
+
 print_status "Editing Bash init file to add case insensitive completion."
 echo set completion-ignore-case on >> ~/.inputrc
 
